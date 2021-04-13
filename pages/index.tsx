@@ -1,10 +1,12 @@
 import Layout from '../components/layout'
-import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
     <Layout>
-      <main className={styles.main}>
+      <main>
+        <p>
+          ここに自己紹介的な
+        </p>
       </main>
     </Layout>
   )
