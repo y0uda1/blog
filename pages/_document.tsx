@@ -19,9 +19,7 @@ class MyDocument extends Document {
     render(): JSX.Element {
         return (
             <Html>
-                <Head>
-                    <title>{'y0udai.dev'}</title>
-                </Head>
+                <Head />
                 <body>
                     <Main />
                     <NextScript />
