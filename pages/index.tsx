@@ -15,10 +15,7 @@ export default function Home(): JSX.Element {
                             <p>
                                 2016年4月〜2019年9月：ナレッジスイート株式会社
                             </p>
-                            <p>
-                                2011年4月〜2016年3月：横浜国立大学 理工学部
-                                (単位不足で1年留年)
-                            </p>
+                            <p>2011年4月〜2016年3月：横浜国立大学 理工学部</p>
                         </div>
 
                         <p className={'mt-2 border-b-2 text-xl'}>
