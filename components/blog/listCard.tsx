@@ -15,7 +15,10 @@ const BlogCard: React.FC<BlogProps> = ({ blog }) => {
     return (
         <Link href={`/blog/${id}`}>
             <a>
-                <div className={'border-2 rounded border-indigo-200 mb-3 p-3'}>
+                <div
+                    className={
+                        'border-2 rounded border-indigo-50 mb-3 p-3 hover:bg-indigo-50'
+                    }>
                     <div>
                         <span className={'text-xl'}>{title}</span>
                         <span className={'text-xs text-gray-400 float-right'}>
