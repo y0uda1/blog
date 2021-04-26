@@ -50,7 +50,16 @@ export default class Layout extends React.Component {
                 </header>
 
                 <div className={'flex-grow container mx-auto'}>
-                    {this.props.children}
+                    <div className={'flex justify-center'}>
+                        <div
+                            className={
+                                'w-full my-5 rounded shadow-lg bg-white'
+                            }>
+                            <div className={'mx-10 my-5'}>
+                                {this.props.children}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

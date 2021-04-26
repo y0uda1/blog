@@ -2,36 +2,23 @@ import React from 'react'
 import Layout from '../../components/layout'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Contents from '../../components/blog/contents'
+import { Blog, BlogList } from '../../@types/blog'
 
 interface ArticleProps {
     blog: Blog
 }
 
-interface Blog {
-    id: string
-    title: string
-    body: string
-    createdAt: string
-}
-
-interface BlogList {
-    contents: Blog[]
-    limit: number
-    offset: number
-    totalCount: number
-}
-
 const Article: React.FC<ArticleProps> = ({ blog }) => {
+    const createdAt = new Date(blog.createdAt)
     return (
         <Layout>
-            <div className={'flex justify-center'}>
-                <div className={'w-full my-5 rounded shadow-lg bg-white'}>
-                    <div className={'mx-10 my-5'}>
-                        <div className={'text-xl'}>{blog.title}</div>
-                        <Contents html={blog.body} />
-                    </div>
-                </div>
+            <div className={'mb-3 p-2 border-2 rounded border-indigo-200'}>
+                <span className={'text-xl'}>{blog.title}</span>
+                <span className={'text-xs text-gray-400 float-right'}>
+                    {createdAt.toLocaleDateString()}
+                </span>
             </div>
+            <Contents html={blog.body} />
         </Layout>
     )
 }

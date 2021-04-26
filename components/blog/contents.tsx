@@ -7,12 +7,10 @@ interface ContentsProps {
 
 const Contents: React.FC<ContentsProps> = ({ html }) => {
     return (
-        <div>
-            <div
-                className={styles.content}
-                dangerouslySetInnerHTML={{ __html: html }}
-            />
-        </div>
+        <div
+            className={styles.content}
+            dangerouslySetInnerHTML={{ __html: html }}
+        />
     )
 }
 
