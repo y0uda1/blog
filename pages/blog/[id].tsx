@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../../components/layout'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import Contents from '../../components/blog/contents'
 
 interface ArticleProps {
     blog: Blog
@@ -26,8 +27,8 @@ const Article: React.FC<ArticleProps> = ({ blog }) => {
             <div className={'flex justify-center'}>
                 <div className={'w-full my-5 rounded shadow-lg bg-white'}>
                     <div className={'mx-10 my-5'}>
-                        <div>{blog.title}</div>
-                        <div dangerouslySetInnerHTML={{ __html: blog.body }} />
+                        <div className={'text-xl'}>{blog.title}</div>
+                        <Contents html={blog.body} />
                     </div>
                 </div>
             </div>

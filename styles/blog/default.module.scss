@@ -1,0 +1,49 @@
+.content {
+    h1 {
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: larger;
+        border-bottom-width: 3px;
+    }
+
+    h3 {
+        font-size: large;
+    }
+
+    p {
+        font-size: small;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        margin-top: 0.25rem;
+    }
+
+    code {
+        font-size: small;
+        display: inline-block;
+        padding: 0.1rem 0.25rem;
+        background-color: rgb(39, 39, 39);
+        color: whitesmoke;
+        border-radius: 3px;
+    }
+
+    a {
+        color: royalblue;
+        &:hover {
+            color: rgb(2, 99, 99);
+            text-decoration: underline;
+        }
+    }
+
+    ol {
+        list-style-position: inside;
+        list-style-type: decimal;
+    }
+
+    ul {
+        list-style-position: inside;
+        list-style-type: square;
+    }
+}

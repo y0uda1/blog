@@ -1,7 +1,7 @@
 import React from 'react'
 import { GetStaticProps } from 'next'
 import Layout from '../../components/layout'
-import BlogCard from '../../components/blogListCard'
+import BlogCard from '../../components/blog/listCard'
 
 interface Blog {
     id: string
