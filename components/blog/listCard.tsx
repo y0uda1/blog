@@ -1,17 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
-import { Blog } from '../../@types/blog'
+import { IBlog } from '../../@types/blog'
 
-interface BlogProps {
-    blog: Blog
+interface P {
+    blog: IBlog
 }
 
-const BlogCard: React.FC<BlogProps> = ({ blog }) => {
+const BlogCard: React.FC<P> = ({ blog }) => {
     const id = blog.id
     const title = blog.title
     // APIから帰ってきた日付文字列をここでDateに変換しているけど、もっと大元で直したい。わからない。
     const createdAt = new Date(blog.createdAt)
-    const summary = blog.body.replace(/(<([^>]+)>)/giu, '')
     return (
         <Link href={`/blog/${id}`}>
             <a>
@@ -25,9 +24,6 @@ const BlogCard: React.FC<BlogProps> = ({ blog }) => {
                             {createdAt.toLocaleDateString()}
                         </span>
                     </div>
-                    <p className={'text-xs text-gray-600 truncate'}>
-                        {summary}
-                    </p>
                 </div>
             </a>
         </Link>

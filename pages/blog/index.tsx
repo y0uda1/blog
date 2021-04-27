@@ -1,10 +1,11 @@
 import React from 'react'
 import { GetStaticProps } from 'next'
+import axios from 'axios'
 import Layout from '../../components/layout'
 import BlogCard from '../../components/blog/listCard'
-import { BlogList } from '../../@types/blog'
+import { IBlogList } from '../../@types/blog'
 
-const BlogHome: React.FC<BlogList> = (blogList) => {
+const BlogHome: React.FC<IBlogList> = (blogList) => {
     return (
         <Layout>
             <h1 className={'text-2xl mb-2 pb-2'}>
@@ -27,9 +28,9 @@ export const getStaticProps: GetStaticProps = async () => {
     const key = {
         headers: { 'X-API-KEY': process.env.API_KEY },
     }
-    const blogList = await fetch(process.env.CMS_END_POINT, key)
-        .then((res) => res.json())
-        .catch(() => null)
+    const blogList = await axios
+        .get<IBlogList>(process.env.CMS_END_POINT, key)
+        .then((res) => res.data)
 
     return { props: blogList }
 }

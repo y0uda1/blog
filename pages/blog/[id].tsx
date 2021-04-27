@@ -1,14 +1,15 @@
 import React from 'react'
-import Layout from '../../components/layout'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import axios, { AxiosRequestConfig } from 'axios'
+import Layout from '../../components/layout'
 import Contents from '../../components/blog/contents'
-import { Blog, BlogList } from '../../@types/blog'
+import { IBlog, IBlogList } from '../../@types/blog'
 
-interface ArticleProps {
-    blog: Blog
+interface P {
+    blog: IBlog
 }
 
-const Article: React.FC<ArticleProps> = ({ blog }) => {
+const Article: React.FC<P> = ({ blog }) => {
     const createdAt = new Date(blog.createdAt)
     return (
         <Layout>
@@ -25,26 +26,22 @@ const Article: React.FC<ArticleProps> = ({ blog }) => {
 
 export default Article
 
+const config: AxiosRequestConfig = {
+    headers: { 'X-API-KEY': process.env.API_KEY },
+}
+
 export const getStaticProps: GetStaticProps = async (context) => {
-    const key = {
-        headers: { 'X-API-KEY': process.env.API_KEY },
-    }
-    const blog: Blog = await fetch(
-        `${process.env.CMS_END_POINT}/${context.params.id}`,
-        key
-    )
-        .then((res) => res.json())
-        .catch(() => null)
+    const blog = await axios
+        .get<IBlog>(`${process.env.CMS_END_POINT}/${context.params.id}`, config)
+        .then((res) => res.data)
+
     return { props: { blog } }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const key = {
-        headers: { 'X-API-KEY': process.env.API_KEY },
-    }
-    const blogList: BlogList = await fetch(process.env.CMS_END_POINT, key)
-        .then((res) => res.json())
-        .catch(() => null)
+    const blogList = await axios
+        .get<IBlogList>(process.env.CMS_END_POINT, config)
+        .then((res) => res.data)
 
     const paths = blogList.contents.map((content) => ({
         params: { id: content.id },
