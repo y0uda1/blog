@@ -7,17 +7,28 @@
     h2 {
         font-size: larger;
         border-bottom-width: 3px;
+        border-color: rgb(182, 198, 253);
+        margin-top: 1rem;
     }
 
     h3 {
         font-size: large;
     }
 
+    h4 {
+        border-left-width: 6px;
+        border-bottom-width: 3px;
+        border-color: rgb(211, 221, 255);
+        padding-left: 0.25rem;
+        margin-top: 1rem;
+        margin-left: 0.5rem;
+    }
+
     p {
         font-size: small;
-        padding-left: 0.25rem;
-        padding-right: 0.25rem;
-        margin-top: 0.25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-top: 0.5rem;
     }
 
     code {
@@ -40,10 +51,19 @@
     ol {
         list-style-position: inside;
         list-style-type: decimal;
+        font-size: small;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        margin-top: 0.5rem;
     }
 
     ul {
         list-style-position: inside;
         list-style-type: square;
+        font-size: small;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
     }
 }
